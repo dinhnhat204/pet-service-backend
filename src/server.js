@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const connectDB = require("./src/config/db.js"); // Import hàm kết nối
+const connectDB = require("./config/db.js"); // Import hàm kết nối
 
 dotenv.config();
 
