@@ -1,22 +1,18 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const cors = require("cors");
-const connectDB = require("./config/db.js"); // Import hàm kết nối
+import express from 'express'
+// import { mapOrder } from '~/utils/sorts.js'
 
-dotenv.config();
+const app = express()
 
-// Kết nối Database
-connectDB();
+const hostname = 'localhost'
+const port = 8017
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+app.get('/', (req, res) => {
+  // Test Absolute import mapOrder
 
-app.get("/", (req, res) => {
-  res.send("API Pet Service đã kết nối Database thành công!");
-});
+  res.end('<h1>Hello World!</h1><hr>')
+})
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server đang chạy tại: http://localhost:${PORT}`);
-});
+app.listen(port, hostname, () => {
+  // eslint-disable-next-line no-console
+  console.log(` I am running at ${hostname}:${port}/`)
+})
